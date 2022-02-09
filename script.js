@@ -2,10 +2,10 @@
 	'use strict';
 
 	const routes = new Routes([
-		[ '/user/{id}/{name}?query={query}#{anchor}', { route: 'user-query-anchor' } ],
-		[ '/user/{id}/{name}?query={query}', { route: 'user-query' } ],
-		[ '/user/{id}/{name}#{anchor}', { route: 'user-anchor' } ],
-		[ '/user/{id}/{name}', { route: 'user' } ],
+		[ '/user/{id}/{name}', { route: 'user' }, {
+			params: { q1: '{query1}', q2: 'test-{query2}' },
+			hash: '{hash}',
+		}],
 		[ '/', { route: 'index' } ],
 		[ '', { route: 'default' } ],
 	]);
