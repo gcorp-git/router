@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Router</title>
+</head>
+<body>
+
+	<a href="/">main</a> |
+	<a href="/user/123/test">/user/123/test</a> |
+	<a href="test.html">test.html</a> |
+	<a href="#bar">#anchor</a> |
+	<a href="?query=bar">?query=bar</a> |
+
+	<hr>
+
+	<a href="//google.com">//google.com</a> |
+	<a href="/user/123/test" data-router="ignore">/user/123/test (ignored)</a> |
+	<a href="&foo=incorrect">&foo=incorrect</a> |
+	<a href="/parent">
+		<a href="/nested">
+			<div>nested link</div>
+		</a>
+	</a>
+
+	<hr>
+
+	<a href="javascript: void(0);" onclick="history.back();">back</a>
+	<a href="javascript: void(0);" onclick="history.forward();">forward</a>
+
+	<script src="/router.min.js"></script>
+	<script src="/script.js"></script>
+
+</body>
+</html>
