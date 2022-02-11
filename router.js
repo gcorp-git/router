@@ -327,17 +327,17 @@
 	function _deepFreeze( o ) {
 		Object.freeze( o );
 
-		if ( o === undefined ) return o;
+		if ( o === undefined || o === null ) return o;
 
-		Object.getOwnPropertyNames( o ).forEach( prop => {
-			if (
-				o[ prop ] !== null
-				&& ( typeof o[ prop ] === 'object' || typeof o[ prop ] === 'function' )
-				&& !Object.isFrozen( o[ prop ] )
-			) {
-				_deepFreeze( o[ prop ] );
+		for ( const prop of Object.getOwnPropertyNames( o ) ) {
+			if ( o[ prop ] !== null ) {
+				if ( typeof o[ prop ] === 'object' || typeof o[ prop ] === 'function' ) {
+					if ( !Object.isFrozen( o[ prop ] ) ) {
+						_deepFreeze( o[ prop ] );
+					}
+				}
 			}
-		});
+		}
 
 		return o;
 	};
