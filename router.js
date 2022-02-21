@@ -28,8 +28,6 @@
 
 			document.addEventListener( 'click', _onLinkClick );
 			window.onpopstate = e => OPTIONS.onVisit( e.state );
-
-			this.visit( document.location.href );
 		}
 		visit( url ) {
 			if ( typeof url !== 'string' ) {
